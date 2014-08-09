@@ -46,12 +46,12 @@ function generateMap(latlong) {
 		    var tmp = markers[i].split(";");
 		    var location = tmp[0];
 		    var addr = tmp[3];		    
-	    	var dist = getDistance(37.765106476986, -122.389679487281,tmp[1],tmp[2]);
+	    	var dist = getDistance(loc[0], loc[1],tmp[1],tmp[2]);
 		    var ele = '<div class="info_content">' + "<h3>" + location + "</h3>" + "<p>" + addr + "</p>" + "<h4>" + dist + " miles away</h4>" + "</div>";
 	    	infoWindowContent[i] = ele;
     	}
     	var tmp = markers[len-1].split(";");
-	    var dist = getDistance(37.765106476986, -122.389679487281,tmp[1],tmp[2]);
+	    var dist = getDistance(loc[0], loc[1],tmp[1],tmp[2]);
 	    infoWindowContent[i] = '<div class="info_content">' + "<h3>" + tmp[0] + "</h3>" + "<p>" + tmp[3] + "</p>" + "<h4>" + dist + " miles away</h4>" + "</div>";
 	    
 	    // Display multiple markers on a map
