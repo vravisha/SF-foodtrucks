@@ -45,14 +45,20 @@ function generateMap(latlong) {
 	    for( i = 0; i < markers.length-1; i++ ) {
 		    var tmp = markers[i].split(";");
 		    var location = tmp[0];
-		    var addr = tmp[3];		    
+		    var addr = tmp[3];	
+		    var items = "";
+		    if(tmp.length > 4)
+		    	items = tmp[4];
 	    	var dist = getDistance(loc[0], loc[1],tmp[1],tmp[2]);
-		    var ele = '<div class="info_content">' + "<h3>" + location + "</h3>" + "<p>" + addr + "</p>" + "<h4>" + dist + " miles away</h4>" + "</div>";
+		    var ele = '<div class="info_content">' + "<h3 align=\"left\">" + location + "</h3>" + "<p>" + addr + "</p>" + items + "<br/>" + "<h4>" + dist + " miles away</h4>" + "</div>";
 	    	infoWindowContent[i] = ele;
-    	}
-    	var tmp = markers[len-1].split(";");
+    		}
+    		var tmp = markers[len-1].split(";");
+    		var items = "";
+		    if(tmp.length > 4)
+		    	items = tmp[4];
 	    var dist = getDistance(loc[0], loc[1],tmp[1],tmp[2]);
-	    infoWindowContent[i] = '<div class="info_content">' + "<h3>" + tmp[0] + "</h3>" + "<p>" + tmp[3] + "</p>" + "<h4>" + dist + " miles away</h4>" + "</div>";
+	    infoWindowContent[i] = '<div class="info_content">' + "<h3 align=\"left\">" + tmp[0] + "</h3>" + "<p>" + tmp[3] + "</p>" + items + "<br/><h4>" + dist + " miles away</h4></div>";
 	    
 	    // Display multiple markers on a map
 	    var infoWindow = new google.maps.InfoWindow(), marker, i;
