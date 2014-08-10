@@ -106,8 +106,8 @@
 	        if (sizeof($res)> 0) {
 		        
 		        //get location data of all food trucks with the same block as the one selected
-		        $query = "SELECT Applicant, Latitude, Longitude, Address from food_trucks WHERE block='".$res[0]."'";
-				$cols = ['Applicant','Latitude','Longitude','Address'];
+		        $query = "SELECT Applicant, Latitude, Longitude, Address, FoodItems from food_trucks WHERE block='".$res[0]."'";
+				$cols = ['Applicant','Latitude','Longitude','Address','FoodItems'];
 				$loc = true;
 				$arr = [];
 				$values = getData($query, $arr, $cols, $loc);
